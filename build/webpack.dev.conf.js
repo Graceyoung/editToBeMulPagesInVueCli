@@ -70,10 +70,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 })
 let pages = utils.getEntry('./src/'+config.moduleName+'/**/*.html');
 for(let pathname in pages){
+  // 配置生成的html文件，定义路径等
   let conf = {
     filename: pathname+'.html',
-    template: pages[pathname],
-    inject: true,
+    template: pages[pathname], // 模板路径
+    inject: true,  // js插入位置
     chunks: [pathname]
   };
   devWebpackConfig.plugins.push(new HtmlWebpackPlugin(conf));

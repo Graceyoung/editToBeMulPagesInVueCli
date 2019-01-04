@@ -114,7 +114,7 @@ exports.getEntry = function (globPath) {
       }
       pathname = pathsrc + '/'+basename;
       console.log('splice(-3) is'+temp);
-      // pathname = temp.splice(0,1)+'/'+ basename;
+      // pathname = basename.split("_")[0];  //index_main.js得到index
       entries[pathname] = entry;
     });
     console.log(entries);

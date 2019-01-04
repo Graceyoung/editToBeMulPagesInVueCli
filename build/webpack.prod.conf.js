@@ -9,7 +9,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin') // 压缩
+// const ManifestPlugin = require('webpack-plugin-manifest') // 所有清单自动标识，如app_css.291431bdd7415f9ff51d.css
 const glob = require('glob');
 
 var entries = utils.getEntry('./src/'+config.moduleName+'/**/*.js');
@@ -112,6 +113,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ])
+    // new ManifestPlugin()
   ]
 })
 
