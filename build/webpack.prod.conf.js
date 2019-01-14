@@ -113,7 +113,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ])
-    // new ManifestPlugin()
+    // new ManifestPlugin() // 所有清单自动标识，如app_css.291431bdd7415f9ff51d.css
   ]
 })
 
@@ -145,6 +145,9 @@ if (config.build.bundleAnalyzerReport) {
 let pages = utils.getEntry('./src/'+config.moduleName+'/**/*.html');
 for(let pathname in pages){
   let conf = {
+    /*filename: process.env.NODE_ENV === 'testing'
+      ? pathname + '.html'
+      : config.build[pathname],*/
     filename:  pathname+'.html',//pathname+'.html',//config.build[pathname],
     template: pages[pathname],
     inject: true,
